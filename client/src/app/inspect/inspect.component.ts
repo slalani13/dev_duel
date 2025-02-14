@@ -8,7 +8,9 @@ import { UserService } from 'src/user.service';
 })
 export class InspectComponent implements OnInit {
 
-  username: string = ""
+  username: string = "";
+  showCard: boolean = false;
+  data: any = null; // Variable to store user data
 
 
   constructor(private userService: UserService) { }
@@ -20,10 +22,20 @@ export class InspectComponent implements OnInit {
     this.username = valueEmitted;
   }
 
-  onSubmit() {
-    this.userService.inspectUser(this.username);
+  async onSubmit() {
+    // this.userService.inspectUser(this.username);
+    if (this.username.trim()) {
+      this.showCard = true; // Show card if a username is entered
+    } else {
+      this.showCard = false; // Hide card if username is empty
+      alert("Please enter a username!");
+    }
+    try {
+      const data = await this.userService.inspectUser(this.username);
+      this.data = data;  // Store the fetched data
+      this.showCard = true;   // Show the card
+    } catch (error) {
+      console.error('Error fetching user data', error);
+    }
   }
-
-
-
 }

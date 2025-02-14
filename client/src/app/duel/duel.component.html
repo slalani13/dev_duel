@@ -18,4 +18,9 @@
   <br />
   <br />
   <button class="submit-button" (click)="onSubmit()">Duel</button>
+  <div class="duel_card">
+    <app-card *ngIf="showCard" [userData] = "user1Data"></app-card>
+    <app-card *ngIf="showCard" [userData] = "user2Data"></app-card>
+  </div>
+  <h2 *ngIf="showCard">Winner: {{getWinner()}}</h2>
 </div>

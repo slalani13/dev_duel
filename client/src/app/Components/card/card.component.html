@@ -1,0 +1,57 @@
+<div class="card_class">
+  <div>
+    <img [src]="userData?.avatar_url" alt="User Avatar" class="avatar">
+  </div>
+  <div>
+    <div class="data_entry">
+      <p class="blue_box">username</p>
+      <p>{{ userData?.username }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Bio</p>
+      <p class="desc">{{ userData?.bio }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Favorite Language</p>
+      <p>{{ userData?.['favorite-language'] }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Followers</p>
+      <p>{{ userData?.followers }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Following</p>
+      <p>{{ userData?.following }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Highest Starred</p>
+      <p>{{ userData?.['highest-starred'] }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Location</p>
+      <p>{{ userData?.location || 'Not available' }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Name</p>
+      <p>{{ userData?.name }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Perfect Repos</p>
+      <p>{{ userData?.['perfect-repos'] }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Public Repos</p>
+      <p>{{ userData?.['public-repos'] }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Titles</p>
+      <p>{{ userData?.titles.join(', ') }}</p>
+    </div>
+    <div class="data_entry">
+      <p class="blue_box">Total Stars</p>
+      <p>{{ userData?.['total-stars'] }}</p>
+    </div>
+  </div>
+  
+</div>
+

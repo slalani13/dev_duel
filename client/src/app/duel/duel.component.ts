@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/user.service';
 
+
 @Component({
   selector: 'app-duel',
   templateUrl: './duel.component.html',
@@ -9,6 +10,9 @@ import { UserService } from 'src/user.service';
 export class DuelComponent implements OnInit {
   usernameOne: string = ""
   usernameTwo: string = ""
+  user1Data: any
+  user2Data: any
+  showCard: boolean = false
 
   constructor(private userService: UserService) { }
 
@@ -23,7 +27,20 @@ export class DuelComponent implements OnInit {
     this.usernameTwo = valueEmitted;
   }
 
-  onSubmit() {
-    this.userService.duelUsers(this.usernameOne, this.usernameTwo);
+  async onSubmit() {
+    const data = await this.userService.duelUsers(this.usernameOne, this.usernameTwo);
+    if (Array.isArray(data) && data.length === 2) {
+      this.user1Data = data[0];  // First user data
+      this.user2Data = data[1];  // Second user data
+      this.showCard = true
+    }
+  }
+
+  getWinner() {
+    if (this.user1Data['total-stars'] >= this.user2Data['total-stars']) {
+      return this.user1Data.username;
+    }
+    return this.user2Data.username;
   }
 }
+
