@@ -1,8 +1,33 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Centers items */
+  align-items: center;
+  gap: 40px; /* Adds spacing between links */
+  padding: 15px 0;
+  background: #f8f9fa; /* Light background for contrast */
+  border-bottom: 3px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
 .link {
-font-family: 'Nunito';
-font-style: normal;
-font-weight: 700;
-font-size: 48px;
-text-align: center;
-color: #581DFF;
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px; /* Reduced slightly for better spacing */
+  text-align: center;
+  color: #581DFF;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.link:hover {
+  color: #4000ff;
+  text-shadow: 2px 2px 10px rgba(88, 29, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.link h1 {
+  margin: 0;
+  padding: 5px 15px;
 }
